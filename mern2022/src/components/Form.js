@@ -15,6 +15,7 @@ const Form = (props) => {
         }else{
             setFnTitle("");
         }
+        
     }
 
     const handleLastName = (e)=>{
