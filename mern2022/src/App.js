@@ -4,7 +4,7 @@ import Dashboard from './Components/Dashboard';
 function App() {
   return (
     <div className="App">
-		<h1>Hola</h1>
+		<h1>Timeline Cacao</h1>
 		<Dashboard></Dashboard>
     </div>
   );

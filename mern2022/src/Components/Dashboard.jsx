@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import Chart from "react-apexcharts";
 
 class Dashboard extends Component {
@@ -6,6 +6,20 @@ class Dashboard extends Component {
 		super(props);
 
 		this.state = {
+			options: {
+				chart: {
+					height: 350,
+					type: 'rangeBar'
+				},
+				plotOptions: {
+					bar: {
+						horizontal: true
+					}
+				},
+				xaxis: {
+					type: 'datetime'
+				}
+			},
 			series: [
 				{
 					data: [
@@ -40,30 +54,25 @@ class Dashboard extends Component {
 					]
 				}
 			],
-			chart: {
-				height: 350,
-				type: 'rangeBar'
-			},
-			plotOptions: {
-				bar: {
-					horizontal: true
-				}
-			},
-			xaxis: {
-				type: 'datetime'
-			}
-		}
+		};
 	}
-
 
 	render() {
 		return (
-			<div id="chart">
-				<Chart options={this.state.options} series={this.state.series} type="rangeBar" height={350} />
+			<div className="app">
+				<div className="row">
+					<div className="mixed-chart">
+						<Chart
+							options={this.state.options}
+							series={this.state.series}
+							type="rangeBar"
+							width="700"
+						/>
+					</div>
+				</div>
 			</div>
 		);
 	}
 }
 
-export default Dashboard
-
+export default Dashboard;
