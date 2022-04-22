@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { getUsers } from "../bll/data";
 
 const Login = () => {
+    const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
-    const [email, setEmail] = useState("")
     const [msnError, setMsnError] = useState("")
 
     // Obtiene los usuarios del repositorio.
     const users = getUsers();
 
     const validateUser = () => {
-        const user = users.find(x => x.email === email && x.password === password);
+        const user = users.find(x => x.userName === userName && x.password === password);
         if (user === undefined) {
             setMsnError("Usuario o password invalido")
         } else {
-            setMsnError(`Usuario ${user.email} encontrado`)
+            setMsnError(`Usuario ${user.userName} encontrado`)
         }
     }
 
@@ -25,25 +25,27 @@ const Login = () => {
                 <div className='alert alert-warning mt-3'>{msnError}</div>
             )}
             <div className="input-group flex-nowrap mb-3">
-                <span className="input-group-text" id="email">@</span>
-                <input type="email"
+                <span className="input-group-text">Usuario:</span>
+                <input type="text"
+                    id="userName"
+                    name="userName"
                     className="form-control"
-                    placeholder="email"
-                    aria-label="email"
-                    onChange={(e) => setEmail(e.target.value)} />
+                    placeholder="Usuario"
+                    aria-label="userName"
+                    onChange={(e) => setUserName(e.target.value)} />
             </div>
             <div className="input-group flex-nowrap">
-                <span className="input-group-text"
-                    id="password">Ps</span>
-                <br></br>
+                <span className="input-group-text">Contraseña:</span>
                 <input type="password"
+                    id="password"
+                    name="password"
                     className="form-control"
-                    placeholder="password"
+                    placeholder="Contraseña"
                     aria-label="password"
                     onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div className="d-grid gap-2 mt-3">
-                <button type="button" className="btn btn-primary btn-lg" onClick={validateUser}>Primary</button>
+                <button type="button" className="btn btn-primary btn-lg" onClick={validateUser}>Ingresar</button>
             </div>
         </div>
     )

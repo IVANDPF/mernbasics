@@ -1,6 +1,6 @@
 let users = [
-    { email: "santiago", password: "alulema" }, 
-    { email: "pablo", password: "123456" }
+    { userName: "santiago", password: "alulema" }, 
+    { userName: "pablo", password: "123456" }
 ]
 
 export function getUsers(){
