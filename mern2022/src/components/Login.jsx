@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getUsers } from "../bll/data";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [userName, setUserName] = useState("")
@@ -17,6 +18,8 @@ const Login = () => {
             setMsnError(`Usuario ${user.userName} encontrado`)
         }
     }
+
+    const navigate = useNavigate() 
 
     return (
         <div className="container">
@@ -46,6 +49,10 @@ const Login = () => {
             </div>
             <div className="d-grid gap-2 mt-3">
                 <button type="button" className="btn btn-primary btn-lg" onClick={validateUser}>Ingresar</button>
+            </div>
+            <br></br>
+            <div className="d-grid gap-2 mt-3">
+                <button type="button" className="btn btn-primary btn-lg" onClick={()=> navigate("/register", {}) }>Registro</button>
             </div>
         </div>
     )
