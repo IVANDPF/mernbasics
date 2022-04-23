@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Login from './components/Login';
 import Form from './components/Form'
 import React from "react";
+import Dashboard from './components/Dashboard';
 
 
 function App() {
