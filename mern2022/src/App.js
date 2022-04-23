@@ -2,9 +2,20 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import Home from "./components/Home";
 import Login from './components/Login';
+import Form from './components/Form'
+import React from "react";
 
 
 function App() {
+  const [state, setState] = React.useState({
+      firstName: "",
+      lastName: "",
+      email: "",
+      telephone: "",
+      password: "",
+      confirmPassword: ""
+  });
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -13,6 +24,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
         </Routes>
       </BrowserRouter>
+      <Form state={state} setState={setState} />
     </div>
   );
 }
