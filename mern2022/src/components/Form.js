@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { Link, NavLink, useNavigate, useHistory } from 'react-router-dom';
+
+
 const Form = (props) => {
     const {state, setState} = props;
     const [fnTitle, setFnTitle] =  useState("");
@@ -61,10 +64,13 @@ const Form = (props) => {
         }else{
             setCpTitle("");
         }
-    }  
+    } 
+    
+    const navigate = useNavigate();
 
     return(
-        <form>
+        <div>
+            <form>
             <div className="input">
                 <label htmlFor="firstName">First Name: </label>
                 <input type="text" name="firstName" size={30} onChange={handleFirstName}/>
@@ -110,7 +116,14 @@ const Form = (props) => {
             <div className='input'>
                 <input type="submit" value="Register"></input>
             </div>
-        </form>
+            </form>
+            <button type="button" onClick={()=> navigate("/login", {}) }>Autenticacion</button>
+            
+            <Link to={"/login"}>Login</Link>
+        </div>
+       
+        
+        
     );
 }
 
